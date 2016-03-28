@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ID:         CA30FFED
+  Name:       (CSI/XF/BBCODE) Note
+  Contacts:   http://cyberspace.industries/
+  Copyright © 2016 CYBERSPACE Industries
+-->
+<addon addon_id="csiXF_bbCode_CA30FFED" title="(CSI/XF/BBCODE) Note" version_string="1.0.1" version_id="2" url="http://cyberspace.industries/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="custom_bb_code_note_title" version_id="1" version_string="1.0.0"><![CDATA[Заметка]]></phrase>
+    <phrase title="custom_bb_code_note_desc" version_id="1" version_string="1.0.0"><![CDATA[Заметки позволяют выделить особые элементы статьи и вынести их в отдельные блоки. Опции заметок: 0 - обычная заметка; 1 - совет / подсказка; 2 - предупреждение; 3 - важно / внимание.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="csiXF_bbCode_CA30FFED_tag_note" version_id="2" version_string="1.0.1"><![CDATA[<xen:require css="csiXF_bbCode_CA30FFED.css" />
+<div class="csiXF_bbCode_CA30FFED bbCodeNote bbCodeNote-{xen:raw $option}"><div class="bbCodeNoteContent">{xen:raw $content}</div></div>]]></template>
+    <template title="csiXF_bbCode_CA30FFED.css" version_id="1" version_string="1.0.0"><![CDATA[.csiXF_bbCode_CA30FFED {
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 24px 0 0 24px;
+}
+.bbCodeNote .bbCodeNoteContent {
+  position: relative;
+  padding: 10px 10px 10px 24px;
+  border-radius: 10px;
+  background: #bbb;
+  color: #fff;
+}
+.bbCodeNote .bbCodeNoteContent:before {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  z-index: 10;
+  display: block;
+  margin: 0 -24px;
+  padding: 12px;
+  width: 24px;
+  border-radius: 50%;
+  background: inherit;
+  color: #fff;
+  content: '';
+  text-align: center;
+  font-size: 20px;
+  font-family: FontAwesome;
+  line-height: 24px;
+}
+.bbCodeNote a {
+  color: #fff;
+}
+.bbCodeNote.bbCodeNote- .bbCodeNoteContent,
+.bbCodeNote.bbCodeNote-0 .bbCodeNoteContent {
+  background: #39b;
+}
+.bbCodeNote.bbCodeNote-1 .bbCodeNoteContent {
+  background: #e74;
+}
+.bbCodeNote.bbCodeNote-2 .bbCodeNoteContent {
+  background: #5a6;
+}
+.bbCodeNote.bbCodeNote-3 .bbCodeNoteContent {
+  background: #ea0;
+}
+.bbCodeNote.bbCodeNote-4 .bbCodeNoteContent {
+  background: #c43;
+}
+.bbCodeNote.bbCodeNote- .bbCodeNoteContent:before,
+.bbCodeNote.bbCodeNote-0 .bbCodeNoteContent:before {
+  content: '\f129';
+}
+.bbCodeNote.bbCodeNote-1 .bbCodeNoteContent:before {
+  content: '\f0f3';
+}
+.bbCodeNote.bbCodeNote-2 .bbCodeNoteContent:before {
+  content: '\f00c';
+}
+.bbCodeNote.bbCodeNote-3 .bbCodeNoteContent:before {
+  content: '\f12a';
+}
+.bbCodeNote.bbCodeNote-4 .bbCodeNoteContent:before {
+  content: '\f00d';
+}]]></template>
+  </templates>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+  <bb_codes>
+    <bb_code bb_code_id="note" bb_code_mode="callback" has_option="optional" callback_class="CSI\BbCodeNote\BbCode\Formatter\Base" callback_method="getBbCodeNote" option_regex="" trim_lines_after="1" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="0" editor_icon_url="" sprite_mode="0" sprite_params_x="" sprite_params_y="" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[NOTE="0"]Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.[/NOTE]
+
+[NOTE="1"]Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.[/NOTE]
+
+[NOTE="2"]Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.[/NOTE]
+
+[NOTE="3"]Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.[/NOTE]
+
+[NOTE="4"]Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.[/NOTE]]]></example>
+    </bb_code>
+  </bb_codes>
+</addon>
